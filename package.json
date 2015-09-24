@@ -1,0 +1,38 @@
+{
+  "name": "webmail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kepta/dawebmail.git"
+  },
+  "keywords": [
+    "college",
+    "react",
+    "daiict",
+    "webmail"
+  ],
+  "author": "Kushan Joshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kepta/dawebmail/issues"
+  },
+  "homepage": "https://github.com/kepta/dawebmail#readme",
+  "devDependencies": {
+    "eslint": "^1.5.1",
+    "eslint-plugin-react": "^3.4.2",
+    "jspm": "^0.16.9",
+    "node-sass": "^3.3.3"
+  },
+  "jspm": {
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
