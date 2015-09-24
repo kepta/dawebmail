@@ -11231,7 +11231,7 @@ $__System.register('1', ['f', '1a', '1d', '1e', 'be'], function (_export) {
                         return React.createElement(
                             'h1',
                             null,
-                            ' hello world'
+                            ' hello worl'
                         );
                     }
                 }]);
