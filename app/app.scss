@@ -1,11 +1,65 @@
-body {
-    margin: 0;
-    padding: 0;
+td {
+    background-color: yellow;
 }
-p {
-    magin: 12px;
+body {
+    background-color: #ee6e73 !important;
+    height:100%;
+    overflow-y: hidden;
+
+}
+::-webkit-scrollbar {
+  width: 9px;
+  background-color: rgba(0,0,0,0);
+  -webkit-border-radius: 100px;
+}
+/* hover effect for both scrollbar area, and scrollbar 'thumb' */
+::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.09);
 }
 
-.cream-bg {
-    background-color: #fbfbfb !important;
+/* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
+::-webkit-scrollbar-thumb:vertical {
+  background: rgba(0,0,0,0.4);
+  -webkit-border-radius: 100px;
+  background-clip: padding-box;
+  border: 2px solid rgba(0, 0, 0, 0);
+  min-height: 10px; /*Prevent it from getting too small */
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0,0,0,0.61); /* Some darker color when you click it */
+  -webkit-border-radius: 100px;
+}
+
+.hover {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.layout-column {
+    display: flex;
+    flex-direction: column;
+}
+.layout-align-center {
+    align-items: center;
+}
+.layout-just-center {
+    justify-content: center;
+}
+.layout-row {
+    display: flex;
+    flex-direction: row;
 }

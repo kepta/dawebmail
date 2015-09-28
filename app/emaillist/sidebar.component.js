@@ -1,6 +1,7 @@
 import React from 'react';
 import EmailList from './emailList.component';
-import Helper from '../helper';
+import Helper from '../Helpers/helper';
+import User from '../Helpers/user.info';
 let helper = new Helper();
 
 export default class SideBar extends React.Component {
@@ -10,9 +11,10 @@ export default class SideBar extends React.Component {
             mails: [],
             loaded: false
         };
+        var self = this;
         this.componentDidMount.bind(this);
         this.PopulateEmails.bind(this);
-
+        this.GetEmails.bind(this);
         this.styles= this.styles();
     }
     ErrorHandler() {
@@ -34,7 +36,7 @@ export default class SideBar extends React.Component {
         }).reverse();
         this.setState({mails,loaded: true});
     }
-    componentDidMount() {
+    GetEmails() {
         helper.mail().end((err, res) => {
             if (!err) {
                 this.PopulateEmails(res.body.m);
@@ -46,7 +48,17 @@ export default class SideBar extends React.Component {
             }
         });
     }
+    componentDidMount() {
+        this.GetEmails();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.loggedIn);
+        this.GetEmails();
+    }
+
     render() {
+        this.styles.display  =  !User.isLogged() ?  'none': 'flex';
         return (
             <div style={this.styles} className="mui-col-sm-4 mui-col-md-4">
                 <SidePanel />
@@ -62,7 +74,8 @@ export default class SideBar extends React.Component {
             overflow: 'hidden',
             display: 'flex',
             flexDirection: 'column',
-            borderRadius: '5px'
+            borderRadius: '5px',
+            padding: '0'
         };
     }
 }

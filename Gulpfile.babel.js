@@ -20,7 +20,10 @@ var sassOptions = {
     errLogToConsole: true,
     outputStyle: 'expanded'
 };
-
+var sassOptionsBuild = {
+    errLogToConsole: true,
+    outputStyle: 'compressed'
+};
 gulp.task('sass', function () {
     return gulp
         .src(sassInput)
@@ -55,7 +58,7 @@ gulp.task('html-build', function() {
 gulp.task('sass-build', function() {
     return gulp
         .src(sassInput)
-        .pipe(sass(sassOptions).on('error', sass.logError))
+        .pipe(sass(sassOptionsBuild).on('error', sass.logError))
         .pipe(concat('app.css'))
         .pipe(autoprefixer())
         .pipe(minifyCss())

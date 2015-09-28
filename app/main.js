@@ -1,4 +1,4 @@
 import React from 'react';
-import SideBar from './emaillist/sidebar.component';
-React.render( <SideBar /> ,
+import Webmail from './webmail.component';
+React.render( <Webmail /> ,
 document.getElementById('content'));
