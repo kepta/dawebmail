@@ -39,19 +39,21 @@ class Logout extends BaseComponent {
             text : {
                 color: 'white !important'
             }
-        }
+        };
     }
 }
 export default class Webmail extends BaseComponent {
     constructor(props) {
         super(props);
+        // var loggedIn = User.isLogged();
         this.state = {
             Id : null,
-            loggedIn :  User.isLogged()
+            loggedIn :  User.isLogged(),
+            firstTen : []
         };
 
         this.hideLogin = false;
-        this._bind('displayMail','loginHandler');
+        this._bind('displayMail','loginHandler','populateFirstTenEmails');
     }
     displayMail(Id) {
         console.log(this);
@@ -64,13 +66,19 @@ export default class Webmail extends BaseComponent {
             loggedIn
         });
     }
+    populateFirstTenEmails(idGrid) {
+        this.setState({
+            firstTen : idGrid
+        });
+        console.log(idGrid);
+    }
     render() {
         var hide= {display: 'none'};
         return (
             <div className="webmail-wrapper wrapper-margin">
-                    <SideBar  displayMail={this.displayMail} loggedIn={this.state.loggedIn}/>
+                    <SideBar  displayMail={this.displayMail} loggedIn={this.state.loggedIn} firstTen = {this.populateFirstTenEmails}/>
                     <Login loginHandler = {this.loginHandler}/>
-                    <Email Id={this.state.Id} loggedIn={this.state.loggedIn}/>
+                    <Email Id={this.state.Id} loggedIn={this.state.loggedIn} firstTen={this.state.firstTen}/>
                     <Logout/>
             </div>
         );

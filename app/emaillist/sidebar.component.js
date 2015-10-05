@@ -34,7 +34,11 @@ export default class SideBar extends React.Component {
                     displayMail={this.props.displayMail}/>
             );
         }).reverse();
+        var firstTen = mailArg.map((mail) => mail.id);
+        firstTen = firstTen.slice(0,10);
         this.setState({mails,loaded: true});
+        // console.log(firstTen);
+        // this.props.firstTen(firstTen);
     }
     GetEmails() {
         helper.mail().end((err, res) => {
@@ -148,7 +152,7 @@ class TitleBar extends React.Component {
                                 mui-text-black
                                 mui-col-xs-10
                                 mui-col-xs-offset-1
-                                ">201301188
+                                ">{User.getUserInfo().email}
                 </div>
             </div>
         );

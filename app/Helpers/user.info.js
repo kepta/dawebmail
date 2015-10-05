@@ -40,5 +40,5 @@ class User {
             password: this.userInfo.password
         };
     }
-};
+}
 export default user = new User();
